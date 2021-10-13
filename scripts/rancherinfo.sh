@@ -66,8 +66,14 @@ check_rancher() {
     echo "- 检查Rancher部署参数"
     if [[ $mode == "ha" ]]
     then
+        if command -v helm >/dev/null 2>&1 ;then
+            echo -e " \033[32m PASS \033[0m helm command already exists."
+        else
+          echo " helm command not found. Please install helm."
+          exit
+        fi
         helm --kubeconfig=$KUBECONFIG get values rancher -n cattle-system > ./output/rancher_values.yaml
-        echo -e " \033[32m PASS \033[0m"
+        echo -e " \033[32m PASS \033[0m get the values for rancher"
     else
         echo -e " \033[31m Rancher不是Helm方式部署，请到Rancher所在的节点上执行docker inspect <Rancher_Container_id> > inspect_rancher.json 命令进行获取 \033[0m"
         echo -e " \033[31m 并收集Rancher的日志：docker logs --since $(echo $(date -d -3day +%Y-%m-%d)) <Rancher_Container_id> >& ./output/rancher.log"
