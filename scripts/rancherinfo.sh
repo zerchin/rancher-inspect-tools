@@ -22,15 +22,15 @@ if command -v jq >/dev/null 2>&1
 then
     echo -e " \033[32m PASS \033[0m jq command already exists. "
 else
-  echo " jq command not found. Please install jq."
-  exit
+    echo " jq command not found. Please install jq."
+    exit
 fi
 
 if command -v kubectl >/dev/null 2>&1 ;then
     echo -e " \033[32m PASS \033[0m kubectl command already exists."
 else
-  echo " kubectl command not found. Please install kubectl."
-  exit
+    echo " kubectl command not found. Please install kubectl."
+    exit
 fi
 
 
@@ -69,8 +69,8 @@ check_rancher() {
         if command -v helm >/dev/null 2>&1 ;then
             echo -e " \033[32m PASS \033[0m helm command already exists."
         else
-          echo " helm command not found. Please install helm."
-          exit
+            echo " helm command not found. Please install helm."
+            exit
         fi
         helm --kubeconfig=$KUBECONFIG get values rancher -n cattle-system > ./output/rancher_values.yaml
         echo -e " \033[32m PASS \033[0m get the values for rancher"
