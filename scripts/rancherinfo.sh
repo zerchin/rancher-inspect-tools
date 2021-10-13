@@ -288,9 +288,9 @@ check_cluster() {
 
 
 ## check rancher 
-# mkdir -p ./output
-# get_kubeconfig local
-# check_rancher local
+mkdir -p ./output
+get_kubeconfig local
+check_rancher local
 
 ## check downstream cluster
 mkdir -p ./cluster_output
