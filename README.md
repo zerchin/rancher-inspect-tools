@@ -1,11 +1,11 @@
 # rancher-inspect-tools
 
 ## 简介
-- 基于Rancher-URL对Rancher集群进行巡检
+- 基于Rancher-URL对Rancher和下游集群进行巡检
 - 对所有k8s节点进行巡检
 
 ## 用法
-1. 基于Rancher-URL对Rancher集群进行巡检
+1. 基于Rancher-URL对Rancher和下游集群进行巡检
 
 下载`scripts/rancherinfo.sh`脚本到主机上执行即可
 ```bash
