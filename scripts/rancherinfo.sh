@@ -12,7 +12,7 @@
 
 ## 使用方法：替换Rancher_URL为Rancher访问地址，替换Bearer_Token为具体的Token值，然后保存文件可访问Rancher的服务器上执行即可
 ## Bearer_Token：请在浏览器使用admin用户登录Rancher UI，点击右上角-"API & Keys"，新建一个Key，作用范围不指定集群即可
-Rancher_URL="https://demo.cnrancher.com"
+Rancher_URL="https://rancher.zerchin.xyz"
 Bearer_Token="token-gdtf2:6vtqw9v86dz2q7zfhkljqrhrjwxf4x9xslc4hxp748zcr8bnlw9b8m"
 
 
