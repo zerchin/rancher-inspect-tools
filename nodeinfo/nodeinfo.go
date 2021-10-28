@@ -221,7 +221,7 @@ func CMD() {
     cp /etc/security/limits.conf ./output/limits.conf
 
     ## get disk fs
-    df -h | egrep -v "tmpfs|shm|overlay" > ./output/df.log
+    df -hT | egrep -v "tmpfs|shm|overlay" > ./output/df.log
 
     ## get uptime
     uptime > ./output/uptime.log
