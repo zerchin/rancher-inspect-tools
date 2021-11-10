@@ -271,7 +271,7 @@ check_cluster() {
 
     ## collect pod resource usage
     echo "- 收集pod资源使用情况"
-    pods_num=$(kubectl --kubeconfig=$KUBECONFIG get pods -A | wc -l)
+    pods_num=$(kubectl --kubeconfig=$KUBECONFIG get pods --all-namespaces | wc -l)
     echo "pods_resource_useage:" >> $CLUSTER_OUTPUT_FILE
     echo "  pods_num: $pods_num" >> $CLUSTER_OUTPUT_FILE
     kubectl --kubeconfig=$KUBECONFIG top pods --all-namespaces | tee -a $CLUSTER_OUTPUT_FILE
