@@ -255,10 +255,11 @@ check_cluster() {
     echo "---start collecting cluster: ${CLUSTER}---"
     echo "- 收集节点信息"
     nodes=$(kubectl --kubeconfig=$KUBECONFIG get nodes | awk '(NR>1) {print $1}')
-    nodes_num=$(echo $nodes|wc -l)
+    nodes_num=0
     for i in $nodes
     do
         kubectl --kubeconfig=$KUBECONFIG describe nodes $i > ${CLUSTER_OUTPUT_PATH}/${i}.txt
+        nodes_num=$((${nodes_num} + 1))
     done
     echo -e " \033[32m PASS \033[0m"
 
