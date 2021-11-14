@@ -57,12 +57,12 @@ check_rancher() {
     OUTPUT_PATH="./output/rancherinfo.log"
 
     ## check rancher version
-    echo "- 检查Rancher版本" && echo -n "rancher_version: " >> $OUTPUT_PATH
+    echo "- 检查Rancher版本" && echo -n "rancher_version: " > $OUTPUT_PATH
     version=$(curl -sk -X GET -u ${Bearer_Token} ${Rancher_URL}/v3/settings/server-version | jq .value  -r)
     echo "  Rancher 版本：$version" && echo $version >> $OUTPUT_PATH
 
     ## check rancher install mode
-    echo "- 检查Rancher部署模式" && echo -n "rancher_install_mode: " > $OUTPUT_PATH
+    echo "- 检查Rancher部署模式" && echo -n "rancher_install_mode: " >> $OUTPUT_PATH
     if [[ `echo $version | awk -F '.' '{print $2}'` < 5 ]]
     then
         local_name=$(curl -X GET -sk -u ${Bearer_Token} "${Rancher_URL}/v3/clusters?limit=-1"  | jq .data[].id -r| grep local)
